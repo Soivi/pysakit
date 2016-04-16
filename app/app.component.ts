@@ -1,7 +1,7 @@
 import {Component} from  'angular2/core';
 
 @Component({
-    selector: 'my-app',
+    selector: 'pysakit',
     template: '<h1>Pysäkit testi<h1>',    
 })
 

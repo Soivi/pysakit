@@ -3,7 +3,6 @@ import { Router } from 'angular2/router';
 import { StationComponent } from './station.component';
 
 @Component ({
-    selector: 'favorite',
     templateUrl: 'app/templates/favorite.component.html',
     directives: [StationComponent]
 })

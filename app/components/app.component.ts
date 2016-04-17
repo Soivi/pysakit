@@ -24,7 +24,4 @@ import { StationComponent } from './station.component';
     }
 ])
 
-export class AppComponent {
-    
-    
-}
+export class AppComponent {}

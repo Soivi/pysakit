@@ -18,8 +18,8 @@ export class TrainStationsComponent implements OnInit {
     ) {}
     
     
-    gotoStation() {
-        this._router.navigate(['Station']);
+    gotoStation(station: TrainStation) {
+        this._router.navigate(['Station', {stationShortCode: station.stationShortCode}]);
     }
     
     getStations() {

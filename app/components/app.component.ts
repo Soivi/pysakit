@@ -24,7 +24,7 @@ import { StationService } from '../services/station.service';
         path: '/trainstations', name: 'TrainStations', component: TrainStationsComponent,
     },
     {
-        path: '/station', name: 'Station', component: StationComponent,
+        path: '/station/:stationShortCode', name: 'Station', component: StationComponent,
     },
 ])
 

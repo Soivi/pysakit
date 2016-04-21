@@ -2,10 +2,11 @@ export class Traindeparture{
     stationShortCode: string;
     stationUICCode: number;
     countryCode: string;
-    trainStopping: string;
-    commercialStop: string;
+    type: string;
+    trainStopping: boolean;
+    commercialStop: boolean;
     commercialTrack: string;
-    cancelled: string;
+    cancelled: boolean;
     scheduledTime: string;
-    causes: string;    
+    causes: string [];    
 }

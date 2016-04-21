@@ -1,0 +1,11 @@
+<h1>Kervo</h1>
+<ul>
+        <li *ngFor="#train of trains">
+            <span>{{train.operatorShortCode}}</span> {{train.trainType}}
+            <ul>
+                <li *ngFor="#departure of train.timeTableRows">
+                    <span>{{departure.stationShortCode}}</span>
+                </li>
+            </ul>
+        </li>
+</ul>

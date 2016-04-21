@@ -1,0 +1,10 @@
+<h1>Here is all stations</h1>
+
+
+<button (click)="gotoStation()">Kerava</button>
+
+<ul>
+  <li *ngFor='#station of stations'>
+     <span>{{station.stationName}}</span> {{station.stationShortCode}}
+  </li>
+</ul>

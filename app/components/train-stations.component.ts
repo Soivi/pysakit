@@ -24,7 +24,7 @@ export class TrainStationsComponent implements OnInit {
     
     getStations() {
         this._stationService.getStations()
-            .then(
+            .subscribe(
                 stations => this.stations = stations,
                 error =>  this.errorMessage = <any>error
             );

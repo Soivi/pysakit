@@ -1,28 +1,26 @@
 import { Injectable } from 'angular2/core';
 import { Http, Response } from 'angular2/http';
-import { Train } from '../objects/train';
 import { Observable } from 'rxjs/Observable';
 
 import { DEPARTURES } from '../mock-departure2';
 
+import { Train } from '../objects/train';
 import { TrainStation } from '../objects/train-station';
-import { TRAINSTATIONS } from '../mock-trainstations';
 
 @Injectable()
 
 export class StationService {
     constructor (private http: Http) {}
     
-    private _trainStationUrl = 'app/mock-trainstations.json';
+    private _trainStationUrl = 'http://rata.digitraffic.fi/api/v1/metadata/stations';
     
     getTrains() {
         return Promise.resolve(DEPARTURES);
     }
     
-    getStations (): Promise<TrainStation[]> {
+    getStations (): Observable<TrainStation[]> {
         return this.http.get(this._trainStationUrl)
-            .toPromise()
-            .then(this.extractData)
+            .map(this.extractData)
             .catch(this.handleError);
     }
     
@@ -31,7 +29,7 @@ export class StationService {
             throw new Error('Bad response status: ' + res.status);
         }
         let body = res.json();
-        return body.data || { };
+        return body || { };
     }
     private handleError (error: any) {
         let errMsg = error.message || 'Server error';

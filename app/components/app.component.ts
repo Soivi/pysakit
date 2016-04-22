@@ -1,5 +1,6 @@
 import { Component } from  'angular2/core';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
+import { HTTP_PROVIDERS } from 'angular2/http';
 
 import { FavoriteComponent } from './favorite.component';
 import { TrainStationsComponent } from './train-stations.component';
@@ -12,6 +13,7 @@ import { StationService } from '../services/station.service';
     templateUrl: 'app/templates/app.component.html',  
   directives: [ROUTER_DIRECTIVES],
   providers: [
+      HTTP_PROVIDERS,
       ROUTER_PROVIDERS,
       StationService
       ],

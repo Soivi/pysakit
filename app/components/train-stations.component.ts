@@ -10,21 +10,24 @@ import { StationService } from '../services/station.service';
 })
 
 export class TrainStationsComponent implements OnInit {
-    public stations: TrainStation[];
-    
     constructor(
         private _router: Router,
         private _stationService: StationService
     ) {}
     
-    
+    errorMessage: string;
+    stations: TrainStation[];
+        
     gotoStation(station: TrainStation) {
         this._router.navigate(['Station', {stationShortCode: station.stationShortCode}]);
     }
     
     getStations() {
         this._stationService.getStations()
-        .then(stations => this.stations = stations);
+            .then(
+                stations => this.stations = stations,
+                error =>  this.errorMessage = <any>error
+            );
     }
     
     ngOnInit() {

@@ -4,3 +4,6 @@
     (click)="gotoStation(station)" >
         <span *ngIf="station.passengerTraffic">{{station.stationShortCode}} {{station.stationName}}</span>
 </div>
+
+
+<div class="error" *ngIf="errorMessage">{{errorMessage}}</div>

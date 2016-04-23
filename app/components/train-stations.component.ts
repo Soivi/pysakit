@@ -10,13 +10,13 @@ import { StationService } from '../services/station.service';
 })
 
 export class TrainStationsComponent implements OnInit {
+    errorMessage: string;
+    stations: TrainStation[];
+    
     constructor(
         private _router: Router,
         private _stationService: StationService
     ) {}
-    
-    errorMessage: string;
-    stations: TrainStation[];
         
     gotoStation(station: TrainStation) {
         this._router.navigate(['Station', {stationShortCode: station.stationShortCode}]);

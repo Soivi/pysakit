@@ -2,8 +2,6 @@ import { Injectable } from 'angular2/core';
 import { Http, Response } from 'angular2/http';
 import { Observable } from 'rxjs/Observable';
 
-import { DEPARTURES } from '../mock-departure2';
-
 import { Train } from '../objects/train';
 import { TrainStation } from '../objects/train-station';
 
@@ -13,9 +11,12 @@ export class StationService {
     constructor (private http: Http) {}
     
     private _trainStationUrl = 'http://rata.digitraffic.fi/api/v1/metadata/stations';
+    private _trainsUrl = 'app/mock-departure.json';
     
-    getTrains() {
-        return Promise.resolve(DEPARTURES);
+    getTrains (): Observable<Train[]> {
+        return this.http.get(this._trainsUrl)
+            .map(this.extractData)
+            .catch(this.handleError);
     }
     
     getStations (): Observable<TrainStation[]> {

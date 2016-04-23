@@ -9,6 +9,7 @@ import { StationService } from '../services/station.service';
 
 export class StationComponent implements OnInit { 
     trains: Train[];
+    errorMessage: string;
     
     constructor(
         private _stationService: StationService
@@ -16,9 +17,12 @@ export class StationComponent implements OnInit {
     
     getTrains() {
         this._stationService.getTrains()
-        .then(trains => this.trains = trains);
+        .subscribe(
+        trains => this.trains = trains,
+        error =>  this.errorMessage = <any>error
+        );
     }
-    
+        
     ngOnInit() {
         this.getTrains();
     }

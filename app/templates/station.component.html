@@ -7,7 +7,7 @@
             {{train.departureDate}}
             <ul>
                 <li *ngFor="#departure of train.timeTableRows">
-                    <span {{departure.stationShortCode}}>{{departure.scheduledTime}}</span> 
+                    <span *ngIf="stationShortCode === departure.stationShortCode">{{departure.scheduledTime}}</span> 
                 </li>
             </ul>
         </li>

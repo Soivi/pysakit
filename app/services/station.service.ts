@@ -11,10 +11,11 @@ export class StationService {
     constructor (private http: Http) {}
     
     private _trainStationUrl = 'http://rata.digitraffic.fi/api/v1/metadata/stations';
-    private _trainsUrl = 'http://rata.digitraffic.fi/api/v1/live-trains?station=TKL&arrived_trains=0&arriving_trains=0&departed_trains=0&departing_trains=10';
+    private _trainsUrl = 'http://rata.digitraffic.fi/api/v1/live-trains?station=';
+    private _trainsUrlPara = '&arrived_trains=0&arriving_trains=0&departed_trains=0&departing_trains=10'
     
-    getTrains (): Observable<Train[]> {
-        return this.http.get(this._trainsUrl)
+    getTrains (stationShortCode): Observable<Train[]> {
+        return this.http.get(this._trainsUrl + stationShortCode + this._trainsUrlPara)
             .map(this.extractData)
             .catch(this.handleError);
     }

@@ -12,7 +12,6 @@ export class FavoriteComponent {
         private _router: Router
     ) {}
     
-    
     gotoStation() {
         this._router.navigate(['Station']);
     }

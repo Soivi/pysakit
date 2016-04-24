@@ -7,6 +7,8 @@ export class Traindeparture{
     commercialStop: boolean;
     commercialTrack: string;
     cancelled: boolean;
-    scheduledTime: string;
+    scheduledTime: Date;
+    actualTime: Date;
+    differenceInMinutes: number;
     causes: string [];    
 }

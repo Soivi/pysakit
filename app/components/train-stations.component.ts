@@ -34,4 +34,7 @@ export class TrainStationsComponent implements OnInit {
         this.getStations();
     }
     
+    stringAsDate(dateStr) {
+        return new Date(dateStr);
+    }
 }
